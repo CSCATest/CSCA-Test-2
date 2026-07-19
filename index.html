@@ -580,59 +580,95 @@ document.addEventListener('DOMContentLoaded', function () {
      from this set per the earlier extraction pass.
      ========================================================= */
   var QUESTIONS = [
-    { tier:'Level 1 · Warm-up', text:'If −1, a, 15 is an arithmetic sequence, then a = ?',
-      choices:['9','5','7','11'], correct:2 },
-    { tier:'Level 1 · Warm-up', text:'Given that a, b, c form an arithmetic sequence and satisfy a + c = 20, then b = ?',
-      choices:['10','5','20','0'], correct:0 },
-    { tier:'Level 1 · Warm-up', text:'Let {aₙ} be an arithmetic sequence with first term a₁ = 2 and common difference d = 3. Then a₁₀₀ = ?',
-      choices:['299','302','305','298'], correct:0 },
-    { tier:'Level 1 · Warm-up', text:'What is the next term in the arithmetic sequence 3, 7, 11, 15, ...?',
-  choices:['18','19','20','21'], correct:1 },
-{ tier:'Level 1 · Warm-up', text:'What is the common difference d of the arithmetic sequence 5, 12, 19, 26, ...?',
-  choices:['5','6','7','8'], correct:2 },
-    { tier:'Level 1 · Warm-up', text:'Given that {aₙ} is an arithmetic sequence with a₁ = 1 and d = 2, then a₉ = ?',
-      choices:['20','18','19','17'], correct:3 },
-    { tier:'Level 1 · Warm-up', text:'If {aₙ} is an arithmetic sequence, and a₁ = 1, a₂ = 3, then a₅ = ?',
-      choices:['9','5','7','11'], correct:0 },
-    { tier:'Level 1 · Warm-up', text:'If the sequence {aₙ} is an arithmetic sequence, and a₁ = 3, a₂ = 8, then a₅ = ?',
-  choices:['13','18','28','23'], correct:3 },
+    // ─── GEOMETRIC SEQUENCES & SERIES ───────────────────────────────────────────
+// Format mirrors Arithmetic.txt
+// correct: index (0-based) of the correct choice
 
-    { tier:'Level 2 · Easy-Medium', text:'Given that a = 2 − √3 and b = 2 + √3, the arithmetic mean of a and b is?',
-      choices:['1','2','±1','−1'], correct:1 },
-    { tier:'Level 2 · Easy-Medium', text:'In an arithmetic sequence {aₙ}, if a₂ = 1 and a₄ = 5, then the first term a₁ and common difference d are, respectively:',
-      choices:['−1, 2','1, −2','−1, −2','1, 2'], correct:0 },
-    { tier:'Level 2 · Easy-Medium', text:'Given {aₙ} is an arithmetic sequence with a₁ = 1, a₂ = 2, then a₂₀₂₅ = ?',
-      choices:['2','2025','2024','20'], correct:1 },
-    { tier:'Level 2 · Easy-Medium', text:'If the general term of a sequence {aₙ} is aₙ = 2n − 1, which of the following statements is correct?',
-      choices:['{aₙ} is both an arithmetic and a geometric sequence','{aₙ} is neither an arithmetic nor a geometric sequence','{aₙ} is an arithmetic sequence','{aₙ} is a geometric sequence'], correct:2 },
-    { tier:'Level 2 · Easy-Medium', text:'Among the four sequences below, how many of them are arithmetic sequences?\n(1) 7, 13, 19, 25   (2) 2, 4, 7, 11   (3) −1, −3, −5, −7   (4) 2, 4, 8, 16',
-      choices:['2','3','1','4'], correct:0 },
+// ── Level 1 · Warm-up ────────────────────────────────────────────────────────
 
-    { tier:'Level 3 · Medium', text:'If the sum of the first n terms of the sequence {aₙ} is Sₙ = n³ + n² + n, then the general term aₙ = ?',
-      choices:['3n² − n + 1','n² + n + 1','3n² + n + 1','3n² + 2n + 1'], correct:0 },
-    { tier:'Level 3 · Medium', text:'If a sequence {aₙ} is given by 1/2, −1/4, 1/8, …, then its general term is aₙ = ?',
-      choices:['(1/2)ⁿ','(−1)ⁿ⁻¹(1/2)ⁿ','(1/2)ⁿ⁻¹','(−1)ⁿ(1/2)ⁿ'], correct:1 },
-   { tier:'Level 3 · Medium', text:'If the sequence {aₙ} is 1/3, −1/9, 1/27, ⋯, then the general term aₙ = ?',
+{ tier:'Level 1 · Warm-up', text:'What is the next term in the geometric sequence 3, 6, 12, 24, ...?',
+  choices:['36','48','42','54'], correct:1 },
+
+{ tier:'Level 1 · Warm-up', text:'What is the common ratio q of the geometric sequence 5, 10, 20, 40, ...?',
+  choices:['2','4','5','3'], correct:0 },
+
+{ tier:'Level 1 · Warm-up', text:'Let {aₙ} be a geometric sequence with a₁ = 3 and common ratio q = 2. Then a₅ = ?',
+  choices:['24','48','12','96'], correct:1 },
+
+{ tier:'Level 1 · Warm-up', text:'If a geometric sequence has a₁ = 1 and q = −2, then a₄ = ?',
+  choices:['8','−8','16','−16'], correct:1 },
+
+{ tier:'Level 1 · Warm-up', text:'If a₁ = 4 and a₄ = 32 in a geometric sequence {aₙ}, then a₃ = ?',
+  choices:['8','−8','16','−16'], correct:2 },
+
+{ tier:'Level 1 · Warm-up', text:'If the sequence {aₙ} is a geometric sequence, and a₁ = −48, a₄ = 6, then the common ratio q = ?',
+  choices:['−1/2','−2','1/2','2'], correct:0 },
+
+{ tier:'Level 1 · Warm-up', text:'In the geometric sequence 1, 2, 4, 8, …, the general term aₙ = ?',
+  choices:['2ⁿ','8','2ⁿ⁻¹','2ⁿ⁺¹'], correct:2 },
+
+{ tier:'Level 1 · Warm-up', text:'If a₁ = 6 and q = 1/3 in a geometric sequence, then a₄ = ?',
+  choices:['2/9','2/3','2/27','6/27'], correct:0 },
+
+// ── Level 2 · Easy-Medium ────────────────────────────────────────────────────
+
+{ tier:'Level 2 · Easy-Medium', text:'The geometric mean of 3 and 12 is?',
+  choices:['±6','±4','±10','±8'], correct:0 },
+
+{ tier:'Level 2 · Easy-Medium', text:'Among the four sequences below, how many are geometric sequences?\n(1) 1, 2, 4, 8   (2) 1, 1, 1, 1   (3) 2, 4, 7, 11   (4) −1, 1, −1, 1',
+  choices:['2','3','4','1'], correct:1 },
+
+{ tier:'Level 2 · Easy-Medium', text:'If the general term of a sequence {aₙ} is aₙ = 2ⁿ, which of the following statements is correct?',
+  choices:['{aₙ} is an arithmetic sequence','{aₙ} is neither arithmetic nor geometric','{aₙ} is both arithmetic and geometric','{aₙ} is a geometric sequence'], correct:3 },
+
+{ tier:'Level 2 · Easy-Medium', text:'Given that {aₙ} is a geometric sequence with a₁ = 2 and q = 3, then a₆ = ?',
+  choices:['486','162','243','729'], correct:0 },
+
+{ tier:'Level 2 · Easy-Medium', text:'In a geometric sequence {aₙ}, if a₂ = 6 and a₄ = 54, then the common ratio q = ?',
+  choices:['±√2','±2','±3','±√3'], correct:2 },
+
+{ tier:'Level 2 · Easy-Medium', text:'Given {aₙ} is a geometric sequence with a₁ = 1 and a₂ = 2, then a₂₀₂₅ = ?',
+  choices:['2²⁰²⁵','2²⁰²⁴','2²⁰²³','2²⁰²⁶'], correct:1 },
+
+{ tier:'Level 2 · Easy-Medium', text:'In a geometric sequence {aₙ} with all positive terms, if a₁ · a₅ = 16, then a₃ = ?',
+  choices:['2','4','8','16'], correct:1 },
+
+// ── Level 3 · Medium ─────────────────────────────────────────────────────────
+
+{ tier:'Level 3 · Medium', text:'If a sequence {aₙ} is given by 1/2, −1/4, 1/8, …, then its general term is aₙ = ?',
+  choices:['(1/2)ⁿ','(−1)ⁿ⁻¹(1/2)ⁿ','(1/2)ⁿ⁻¹','(−1)ⁿ(1/2)ⁿ'], correct:1 },
+
+{ tier:'Level 3 · Medium', text:'If the sequence {aₙ} is 1/3, −1/9, 1/27, ⋯, then the general term aₙ = ?',
   choices:['(1/3)ⁿ','(−1)ⁿ⁻¹(1/3)ⁿ','(−1)ⁿ(1/3)ⁿ','(−1)ⁿ⁻¹(1/3)ⁿ⁻¹'], correct:1 },
-    { tier:'Level 3 · Medium', text:'The general formula for the sequence −1/5, 1/7, −1/9, 1/11, … is aₙ = ?',
-      choices:['(−1)ⁿ⁻¹/(3n+2)','(−1)ⁿ/(2n+3)','(−1)ⁿ⁻¹/(2n+3)','(−1)ⁿ/(3n+2)'], correct:1 },
-    { tier:'Level 3 · Medium', text:'In a sequence {aₙ}, if a₁ = 1/2 and 1/aₙ₊₁ = 1/aₙ + 1 (n ≥ 1), then a₆ = ?',
-      choices:['1/7','1/8','1/6','1/9'], correct:0 },
-    { tier:'Level 3 · Medium', text:'If the sequence {aₙ} satisfies a₁ = 1 and aₙ = 1/(1 + 1/aₙ₋₁) for n ≥ 2, then a₁₀₀ = ?',
-      choices:['50','1/100','1','100'], correct:1 },
-    { tier:'Level 3 · Medium', text:'In a sequence {aₙ}, if aₙ = (−1)ⁿ · 2 · aₙ₋₁ for n ≥ 2, and a₁ = 1/3, then a₄ = ?',
-      choices:['−16/3','−8/3','16/3','8/3'], correct:1 },
 
-    { tier:'Level 4 · Hard', text:'Given an arithmetic sequence {aₙ} satisfies 3(a₂+a₆) + 2(a₆+a₁₀+a₁₄) = 24, then S₁₃ = ?',
-      choices:['104','52','39','26'], correct:3 },
-    { tier:'Level 4 · Hard', text:'If the sum of the first n terms of a sequence {aₙ} is Sₙ = (2/3)aₙ + 1/3, then the general term aₙ = ?',
-      choices:['(1/2)ⁿ⁻¹','(−2)ⁿ⁻¹','(−2)ⁿ','−(1/2)ⁿ⁻¹'], correct:1 },
-    { tier:'Level 4 · Hard', text:'Suppose that aₙ = 2ⁿ⁺¹ − 3n, n ≥ 1. Let Sₙ be the sum of the first n terms. Then Sₙ = ?',
-      choices:['2ⁿ⁺² − 3n(n+1)/2 + 4','2ⁿ⁺² − 3n(n+1)/2 − 4','2ⁿ⁺² − 3n − 4','2ⁿ⁺² + 3n(n+1)/2 − 4'], correct:1 },
-    { tier:'Level 4 · Hard', text:'Suppose that in a sequence {aₙ}, a₁ = 1, and 1/aₙ + 2/aₙ₊₁ = 0 (n = 1, 2, …). Another sequence {bₙ} satisfies bₙ = |aₙ|. Then the sum of the first n terms of {bₙ} is Sₙ = ?',
-      choices:['(1+2ⁿ)/3','|1−(−2)ⁿ|/3','2ⁿ − 1','(−2)ⁿ − 1'], correct:2 },
-    { tier:'Level 4 · Hard', text:'Given that {aₙ} satisfies a₁ = 1/2, aₙ₊₁ = aₙ/(1 + 2aₙ), let bₙ = 1/aₙ. Then Sₙ = b₁ + b₂ + ⋯ + bₙ = ?',
-      choices:['n(n+1)','n(n−1)','n²/2','n²'], correct:0 }
+{ tier:'Level 3 · Medium', text:'In a sequence {aₙ}, if aₙ = (−1)ⁿ · 2 · aₙ₋₁ for n ≥ 2, and a₁ = 1/3, then a₄ = ?',
+  choices:['−16/3','−8/3','16/3','8/3'], correct:1 },
+
+{ tier:'Level 3 · Medium', text:'The sum of the first 6 terms of the geometric sequence 1, 2, 4, 8, … is S₆ = ?',
+  choices:['32','63','64','62'], correct:1 },
+
+{ tier:'Level 3 · Medium', text:'If a geometric sequence has a₃ = 4 and a₆ = 32, then the common ratio q = ?',
+  choices:['2','√2','3','4'], correct:0 },
+
+{ tier:'Level 3 · Medium', text:'(log₃ 27)(log₆₄ 16) = ?',
+  choices:['1/6','2','2/3','5'], correct:1 },
+
+{ tier:'Level 3 · Medium', text:'Given that the general term of the geometric sequence {aₙ} is aₙ = 2 × (−1)ⁿ⁺¹, which of the following is correct?',
+  choices:['The common ratio is q = −2','The first term is a₁ = −2','The 100th term is a₁₀₀ = 2','The sum of the first 10 terms is 0'], correct:3 },
+
+// ── Level 4 · Hard ───────────────────────────────────────────────────────────
+
+{ tier:'Level 4 · Hard', text:'If the sum of the first n terms of a sequence {aₙ} is Sₙ = (2/3)aₙ + 1/3, then the general term aₙ = ?',
+  choices:['(1/2)ⁿ⁻¹','(−2)ⁿ⁻¹','(−2)ⁿ','−(1/2)ⁿ⁻¹'], correct:1 },
+
+{ tier:'Level 4 · Hard', text:'Suppose that in a sequence {aₙ}, a₁ = 1, and 1/aₙ + 2/aₙ₊₁ = 0 (n = 1, 2, …). Another sequence {bₙ} satisfies bₙ = |aₙ|. Then the sum of the first n terms of {bₙ} is Sₙ = ?',
+  choices:['(1+2ⁿ)/3','|1−(−2)ⁿ|/3','2ⁿ − 1','(−2)ⁿ − 1'], correct:2 },
+
+{ tier:'Level 4 · Hard', text:'Let the sum of the first n terms of a geometric sequence {aₙ} be Sₙ, and 2Sₙ = 3aₙ₊₁ − 3 (n = 1, 2, …). Then Sₙ = ?',
+  choices:['(3/2)(5/3)ⁿ − 3/2','(2/3)(5/3)ⁿ − 2/3','(3/2)(3/5)ⁿ − 3/2','(2/3)(3/5)ⁿ − 2/3'], correct:0 },
+
+{ tier:'Level 4 · Hard', text:'Given that {aₙ} satisfies a₁ = 1/2, aₙ₊₁ = aₙ/(1 + 2aₙ), let bₙ = 1/aₙ. Then Sₙ = b₁ + b₂ + ⋯ + bₙ = ?',
+  choices:['n(n+1)','n(n−1)','n²/2','n²'], correct:0 }
   ];
 
   var TOTAL_TIME = 45 * 60;      // 30 minutes, in seconds
